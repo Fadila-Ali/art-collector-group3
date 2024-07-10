@@ -28,9 +28,17 @@ public class CustomArtCollectorDetailsService implements UserDetailsService {
         ArtCollector artCollector = artCollectorRepository.findByEmail(email);
 
         if (artCollector != null) {
+//            return new org.springframework.security.core.userdetails.User(artCollector.getEmail(),
+//                    artCollector.getPassword(),
+//                    mapRolesToAuthorities(artCollector.getRoles()));
+
+            Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) mapRolesToAuthorities(artCollector.getRoles());
+
+            System.out.println("User: " + artCollector.getEmail() + ", Roles: " + authorities);
+
             return new org.springframework.security.core.userdetails.User(artCollector.getEmail(),
                     artCollector.getPassword(),
-                    mapRolesToAuthorities(artCollector.getRoles()));
+                    authorities);
         }else{
             throw new UsernameNotFoundException("Invalid email or password.");
         }
