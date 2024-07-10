@@ -27,4 +27,5 @@ public class ArtCollector {
             inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName = "id")}
     )
     private List<Role> roles;
+    private String country;
 }

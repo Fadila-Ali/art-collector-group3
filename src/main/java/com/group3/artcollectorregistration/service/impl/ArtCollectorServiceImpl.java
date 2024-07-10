@@ -33,12 +33,13 @@ public class ArtCollectorServiceImpl implements ArtCollectorService {
         artCollector.setUsername(artCollectorDto.getUsername());
         artCollector.setEmail(artCollectorDto.getEmail());
         artCollector.setPassword(passwordEncoder.encode(artCollectorDto.getPassword()));
+        artCollector.setCountry(artCollectorDto.getCountry());
 
         String roleName;
         if (artCollectorDto.isAdminRegistration()) {
-            roleName = "admin";
+            roleName = "ROLE_ADMIN";
         } else {
-            roleName = "user";
+            roleName = "ROLE_USER";
         }
 
         //Check if role already exists in database, otherwise create it
@@ -71,6 +72,7 @@ public class ArtCollectorServiceImpl implements ArtCollectorService {
         artCollectorDto.setUsername(artCollectors.get(0).getUsername());
         artCollectorDto.setEmail(artCollectors.get(0).getEmail());
         artCollectorDto.setPassword(passwordEncoder.encode(artCollectors.get(0).getPassword()));
+        artCollectorDto.setCountry(artCollectors.get(0).getCountry());
         return artCollectorDto;
     }
 }

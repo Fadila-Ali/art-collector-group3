@@ -22,6 +22,9 @@ public class ArtCollectorDto {
     @NotEmpty(message = "Password required")
     private String password;
 
+    @NotEmpty
+    private String country;
+
     public boolean isAdminRegistration() {
         return email.endsWith(("@admin.com"));
     }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org/"
 >
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>Registration and Login System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -32,20 +32,20 @@
             </div>
             <div class="card-body">
                 <form method="post" role="form" th:action="@{/register/save}" th:object="${artCollector}">
-
                     <div class="form-group mb-3">
-                        <label class="form-label">First Name</label>
+                        <label class="form-label">Username</label>
                         <input class="form-control"
-                               id="firstName"
-                               name="firstName"
-                               placeholder="Enter first name"
+                               id="userame"
+                               name="username"
+                               placeholder="Enter username"
                                th:field="*{username}"
                                type="text"
                         />
                         <p th:errors="*{username}" class="text-danger"
-                           th:if="${#fields.hasErrors('firstName')}">
+                           th:if="${#fields.hasErrors('username')}">
                         </p>
                     </div>
+
                     <div class="form-group mb-3">
                         <label class="form-label">Email</label>
                         <input class="form-control"
@@ -85,7 +85,6 @@
                            th:if="${#fields.hasErrors('country')}">
                         </p>
                     </div>
-
                     <div class="form-group mb-3">
                         <button class="btn btn-primary" type="submit">Register</button>
                         <span>Already registered? <a href="/" th:href="@{/login}">Login
@@ -97,4 +96,3 @@
     </div>
 </div>
 </body>
-</html>

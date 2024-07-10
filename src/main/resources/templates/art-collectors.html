@@ -42,9 +42,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="artCollector: ${artCollector}">
+        <tr th:each="artCollector: ${artCollectors}">
             <td th:text="${artCollector.username}"></td>
-            <td th:text="${artCollector.email}"></td>
+            <td th:text="${artCollector.country}"></td>
         </tr>
         </tbody>
     </table>
